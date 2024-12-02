@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client"
 
 import { Button } from "@/components/ui/button"
@@ -17,9 +18,10 @@ export default function LandingPage() {
         
         <div className="text-lg mb-8 space-y-4">
         <p> We Leveraged </p>
-          <p><b>Civic DIDs 🔑</b>: Uses ZKPs to ensure privacy and security</p>
-          <p><b>Underdog 🐶</b>: Minting c-NFTs (for the passes)</p>
-          <p><b>Helius ⚡</b>: Provides reliable RPC services</p>  
+          <p><b>Civic's  🔑</b>: Uses ZKPs to ensure privacy & security 🫣 </p>
+          <p><b>Metaplex 🖼️</b>: Minting c-NFTs (for the passes) 🪪</p>
+          <p><b>Helius ⚡</b>: Provides reliable RPC services 🏎️</p>  
+          <p><b>IPFS 🌏</b>: For persistent storage 📦</p>  
         </div>
 
 

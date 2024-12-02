@@ -8,12 +8,14 @@ import { Card } from "@/components/ui/card"
 import Navbar from '@/components/Navbar'
 import { useEffect, useState } from 'react'
 import { FileUploadModal } from "@/components/FileUploadModal"
+import { RetrieveFilesModal } from "@/components/RetrieveFilesModal"
 
 export default function DashboardPage() {
   const { connected } = useWallet()
   const router = useRouter()
   const { toast } = useToast()
   const [uploadModalOpen, setUploadModalOpen] = useState(false)
+  const [retrieveModalOpen, setRetrieveModalOpen] = useState(false)
 
   // Protect the route
   useEffect(() => {
@@ -51,11 +53,7 @@ export default function DashboardPage() {
   }
 
   const handleRetrieve = () => {
-    // Implement your file retrieval logic here
-    toast({
-      title: "Retrieval initiated",
-      description: "File retrieval functionality coming soon"
-    })
+    setRetrieveModalOpen(true)
   }
 
   if (!connected) return null
@@ -94,6 +92,10 @@ export default function DashboardPage() {
         open={uploadModalOpen}
         onOpenChange={setUploadModalOpen}
         onSuccess={handleUploadSuccess}
+      />
+      <RetrieveFilesModal
+        open={retrieveModalOpen}
+        onOpenChange={setRetrieveModalOpen}
       />
     </div>
   )
