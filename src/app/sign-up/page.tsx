@@ -9,6 +9,8 @@ import { useState } from "react"
 import { CaptchaModal } from "@/components/CaptchaModal"
 import { LivenessModal } from "@/components/LivenessModal"
 import { IdVerificationModal } from "@/components/IdVerificationModal"
+import { MintNFTButton } from "@/components/MintNFTButton"
+import { useMintNFT } from "@/components/MintNFT"
 
 export default function SignupPage() {
   const [captchaOpen, setCaptchaOpen] = useState(false)
@@ -58,15 +60,30 @@ export default function SignupPage() {
             </Button>
           </Card>
         </div>
-        <h2 className="text-4xl font-bold mb-8 py-9">Mint your Digital pass ✅</h2>
-        <Button 
-          className="bg-primary text-primary-foreground hover:bg-primary/90"
-          disabled={!allVerified}
-          onClick={() => {/* Add minting logic */}}
-        >
-          {allVerified ? "Mint here" : "Complete verification first"}
-        </Button>
+        {allVerified && (
+          <div className="max-w-md mx-auto mt-8">
+            <h2 className="text-4xl font-bold mb-8">Mint your Digital Pass ✅</h2>
+            <MintNFTButton />
+          </div>
+        )}
 
+        {!allVerified && (
+          <div className="mt-8">
+            <h2 className="text-4xl font-bold mb-8">Mint your Digital Pass ✅</h2>
+            <Button 
+              className="bg-primary text-primary-foreground hover:bg-primary/90 py-4"
+              disabled={true}
+            >
+              Complete verification first
+            </Button>
+          </div>
+        )}
+
+        <div className="py-7">
+          <p className="py-6"> <b>Got a CIVIC PASS KYC (SBT) already? </b></p>
+          <p>Skip over to Sign-in :)</p>
+        </div>
+        
         <CaptchaModal 
           open={captchaOpen}
           onOpenChange={setCaptchaOpen}
